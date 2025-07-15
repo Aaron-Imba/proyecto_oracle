@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3001;
 
 // 🔐 Middlewares globales
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // 📁 Importación de rutas organizadas
 const authRoutes = require('./routes/auth.routes');
